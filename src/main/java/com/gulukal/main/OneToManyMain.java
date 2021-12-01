@@ -1,4 +1,4 @@
-package com.gulukal.relation.oneToMany;
+package com.gulukal.main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,23 +7,25 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 
+import com.gulukal.relation.oneToMany.Student;
+import com.gulukal.relation.oneToMany.Teacher;
 import com.gulukal.util.HibernateUtil;
 
 public class OneToManyMain {
 
 	public static void main(String[] args) {
-		// her zaman tek olanla başlayalım.
+		// her zaman tek olanla baslayalim.
 		// 1
-		Teacher teacher = new Teacher("Mustafa Kemal", "Atatürk");
+		Teacher teacher = new Teacher("Mustafa Kemal", "Ataturk");
 		teacher.setStudentList(new ArrayList<Student>());
 
 		// N
-		// 1.öğrenci
-		Student student = new Student("Hamit", "Mızrak");
+		// 1.Student
+		Student student = new Student("Hamit", "Mizrak");
 		student.setTeacher(teacher);
 		teacher.getStudentList().add(student);
 
-		// 2.öğrenci
+		// 2.Student
 		Student student2 = new Student("Recep", "Ergan");
 		student2.setTeacher(teacher);
 		teacher.getStudentList().add(student2);

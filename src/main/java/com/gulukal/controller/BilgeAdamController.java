@@ -15,9 +15,9 @@ import com.gulukal.hibernateconfig.IDatabaseCrud;
 public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAdamEntity> {
 
 	private static final long serialVersionUID = -1213775719782464391L;
-	private static final Logger logger = LogManager.getLogger(BilgeAdamController.class); // logger classı import
-	// all < trace=yeşil < debug=yeşil < info=yeşil < warn=sarı < error=kırmızı <
-	// fatal=kırmız < off
+	private static final Logger logger = LogManager.getLogger(BilgeAdamController.class); // logger classi import
+	// all < trace=yesil < debug=yesil < info=yesil < warn=sari < error=kirmizi <
+	// fatal=kirmiz < off
 
 	public static void main(String[] args) {
 		logger.trace("trace logger durumu");
@@ -29,7 +29,7 @@ public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAda
 	}
 
 	// DML:Create Delete Update : transaction
-	// DQL:select : transaction isteğe bağlı
+	// DQL:select : transaction istege bagli
 	// create:persist
 	// delete: remove
 	// update: merge
@@ -43,9 +43,9 @@ public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAda
 			session.getTransaction().begin();
 			session.persist(entity);
 			session.getTransaction().commit();
-			logger.info("ekleme tamamdır" + BilgeAdamController.class);
+			logger.info("ekleme tamamdir" + BilgeAdamController.class);
 		} catch (Exception e) {
-			logger.error("ekleme anında hata meydana geldi !!!!! " + BilgeAdamController.class);
+			logger.error("ekleme aninda hata meydana geldi !!!!! " + BilgeAdamController.class);
 			e.printStackTrace();
 		}
 	}
@@ -61,10 +61,10 @@ public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAda
 				session.getTransaction().begin();
 				session.remove(findEntity);
 				session.getTransaction().commit();
-				logger.info("Silme Başarılı " + BilgeAdamEntity.class);
+				logger.info("Silme Basarili " + BilgeAdamEntity.class);
 			}
 		} catch (Exception e) {
-			logger.error("silme anında hata meydana geldi !!!!! " + BilgeAdamController.class);
+			logger.error("silme aninda hata meydana geldi !!!!! " + BilgeAdamController.class);
 			e.printStackTrace();
 		}
 
@@ -82,11 +82,11 @@ public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAda
 				session.getTransaction().begin();
 				session.merge(findEntity);
 				session.getTransaction().commit();
-				logger.info("Güncelleme Başarılı " + BilgeAdamEntity.class);
+				logger.info("Güncelleme Basarili " + BilgeAdamEntity.class);
 			}
 
 		} catch (Exception e) {
-			logger.error("güncelleme anında hata meydana geldi !!!!! " + BilgeAdamController.class);
+			logger.error("güncelleme aninda hata meydana geldi !!!!! " + BilgeAdamController.class);
 			e.printStackTrace();
 		}
 	}
@@ -96,8 +96,8 @@ public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAda
 	public ArrayList<BilgeAdamEntity> list() {
 		Session session = databaseConnectionHibernate();
 
-		// unutma: buradaki sorgulama entity sorgulaması yani java classına göre
-		// çağıracağız.
+		// unutma: buradaki sorgulama entity sorgulamasi yani java classina gore
+		// cagiracagiz.
 		String hql = "select str from BilgeAdamEntity as str where str.id>=:key";
 		TypedQuery<BilgeAdamEntity> typedQuery = session.createQuery(hql, BilgeAdamEntity.class);
 
@@ -121,17 +121,17 @@ public class BilgeAdamController implements Serializable, IDatabaseCrud<BilgeAda
 				System.out.println("bulundu... " + bilgeAdamEntity);
 				return bilgeAdamEntity;
 			} else {
-				System.out.println("Aradığınız kriterde sonuçlar bulunamadı ...");
+				System.out.println("Aradiginiz kriterde sonuclar bulunamadi ...");
 				return null;
 			}
 		} catch (Exception e) {
-			logger.error("find anında hata meydana geldi !!!!! " + BilgeAdamController.class);
+			logger.error("find aninda hata meydana geldi !!!!! " + BilgeAdamController.class);
 			e.printStackTrace();
 		}
 		return null;
 	}
 
-	// tek kayıt donder
+	// tek kayit donder
 	@Override
 	public BilgeAdamEntity singleResult(long id) {
 		// TODO Auto-generated method stub

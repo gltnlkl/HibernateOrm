@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 // N
-// FK student içinde olması gerekiyor
+// FK student icinde olmasi gerekiyor
 @Entity
 @Table(name = "student_relation")
 public class Student implements Serializable {
@@ -25,13 +25,13 @@ public class Student implements Serializable {
 	private String studentSurname;
 
 	// composition
-	// unutma: sadece getter and setter ekle,constructura ekleme
+	// unutma: sadece getter and setter ekle,constructur ekleme
 	@ManyToOne
 	@JoinColumn(name = "teacherId")
 	private Teacher teacher;
 
 	public Student() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public Student(String studentName, String studentSurname) {

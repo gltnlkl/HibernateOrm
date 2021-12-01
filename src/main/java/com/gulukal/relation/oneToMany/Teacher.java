@@ -31,7 +31,7 @@ public class Teacher implements Serializable {
 	List<Student> studentList;
 
 	public Teacher() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public Teacher(String teacherName, String teacherSurname) {

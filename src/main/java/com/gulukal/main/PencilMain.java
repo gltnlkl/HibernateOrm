@@ -7,6 +7,13 @@ import com.gulukal.entity.PencilEntity;
 public class PencilMain {
 
 	public static void main(String[] args) {
+
+		addLine();
+
+	}
+
+	public static void addLine() {
+
 		PencilEntity entity = new PencilEntity();
 		entity.setPencilName("Adel 44");
 		entity.setPencilTrade("Adel");
